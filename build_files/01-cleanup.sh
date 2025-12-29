@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Saves a ton of space
+# Got from Zirconium gotta verify
+rm -rf /usr/share/doc
+rm -rf /usr/bin/chsh # footgun
+
+HOME_URL="https://github.com/szenesis/mercuryos"
+echo "Mercurium" | tee "/etc/hostname"
+# OS Release File (changed in order with upstream)
+# TODO: change ANSI_COLOR if applicable
+sed -i -f - /usr/lib/os-release <<EOF
+s|^NAME=.*|NAME=\"Mercurium\"|
+s|^PRETTY_NAME=.*|PRETTY_NAME=\"Mercurium\"|
+s|^VERSION_CODENAME=.*|VERSION_CODENAME=\"social possum\"|
+s|^VARIANT_ID=.*|VARIANT_ID=""|
+s|^HOME_URL=.*|HOME_URL=\"${HOME_URL}\"|
+s|^BUG_REPORT_URL=.*|BUG_REPORT_URL=\"${HOME_URL}/issues\"|
+s|^SUPPORT_URL=.*|SUPPORT_URL=\"${HOME_URL}/issues\"|
+s|^CPE_NAME=\".*\"|CPE_NAME=\"cpe:/o:szenesis:mercuryos\"|
+s|^DOCUMENTATION_URL=.*|DOCUMENTATION_URL=\"${HOME_URL}\"|
+s|^DEFAULT_HOSTNAME=.*|DEFAULT_HOSTNAME="mercurium"|
+
+/^REDHAT_BUGZILLA_PRODUCT=/d
+/^REDHAT_BUGZILLA_PRODUCT_VERSION=/d
+/^REDHAT_SUPPORT_PRODUCT=/d
+/^REDHAT_SUPPORT_PRODUCT_VERSION=/d
+EOF
+
+# Add Flathub to the image for eventual application (got from Zirconium)
+mkdir -p /etc/flatpak/remotes.d/
+curl --retry 3 -Lo /etc/flatpak/remotes.d/flathub.flatpakrepo https://dl.flathub.org/repo/flathub.flatpakrepo
