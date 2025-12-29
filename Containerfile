@@ -1,7 +1,8 @@
 ARG BUILD_FLAVOR="${BUILD_FLAVOR:-}"
 
 FROM scratch AS ctx
-COPY build_files /
+COPY build_files /build
+#COPY system_files /files
 COPY --from=ghcr.io/ublue-os/brew:latest /system_files /files
 COPY --from=ghcr.io/projectbluefin/common:latest /system_files/shared/usr/bin/luks* /files/usr/bin
 COPY cosign.pub /files/etc/pki/containers/mercurium.pub
