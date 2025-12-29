@@ -19,7 +19,7 @@ mkdir -p /var/roothome
 flatpak install -y com.vivaldi.Vivaldi
 
 # Install terminal software from fedora repos
-dnf5 install -y \ 
+dnf install -y \ 
  sakura \
  fish \
  docker \
