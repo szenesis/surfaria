@@ -15,9 +15,17 @@ systemctl enable systemd-resolved.service
 # See https://github.com/CentOS/centos-bootc/issues/191
 mkdir -p /var/roothome
 
-#Flatpak installs
+#Make sure flatpak is active
 dnf5 install -y flatpak
+
+
+#Bazaar store
+flatpak remote-add --system --if-not-exists flathub-beta \
+  https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 flatpak install -y --system flathub org.ublue.bazaar
+
+
+#Flatpak browser install
 flatpak install -y com.vivaldi.Vivaldi
 
 # Install terminal software from fedora repos
