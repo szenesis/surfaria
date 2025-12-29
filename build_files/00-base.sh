@@ -17,6 +17,9 @@ flatpak install -y flathub io.github.kolunmi.Bazaar
 #Flatpak browser install
 flatpak install -y com.vivaldi.Vivaldi
 
+#Flatpak exention manager install
+
+
 # Install terminal software from fedora repos
 dnf5 install -y \
  sakura \
