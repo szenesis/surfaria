@@ -16,16 +16,16 @@ systemctl enable systemd-resolved.service
 mkdir -p /var/roothome
 
 #Flatpak installs
-flatpak install -y flathub com.vivaldi.Vivaldi
+flatpak install -y com.vivaldi.Vivaldi
 
 # Install terminal software from fedora repos
-dnf5 install -y \ 
+dnf5 install -y \
  sakura \
  fish \
  docker \
  fastfetch \
- fzf \
- 
+ fzf
+
 
 #Remove software that is not needed for workflow.
 dnf5 remove -y \
@@ -35,12 +35,12 @@ dnf5 remove -y \
  yelp \
  htop \
  nvtop \
- firefox \
+ firefox
 
 #Remove old/retro Gnome extensions
-dnf5 remove -y \ 
+dnf5 remove -y \
  gnome-shell-extension-common \
- gnome-shell-extension-apps-menu- \
+ gnome-shell-extension-apps-menu \
  gnome-shell-extension-launch-new-instance \
  gnome-shell-extension-places-menu \
  gnome-shell-extension-window-list \
@@ -99,7 +99,7 @@ s|^BUG_REPORT_URL=.*|BUG_REPORT_URL=\"${HOME_URL}/issues\"|
 s|^SUPPORT_URL=.*|SUPPORT_URL=\"${HOME_URL}/issues\"|
 s|^CPE_NAME=\".*\"|CPE_NAME=\"cpe:/o:szenesis:mercuryos\"|
 s|^DOCUMENTATION_URL=.*|DOCUMENTATION_URL=\"${HOME_URL}\"|
-s|^DEFAULT_HOSTNAME=.*|DEFAULT_HOSTNAME="merucurium"|
+s|^DEFAULT_HOSTNAME=.*|DEFAULT_HOSTNAME="mercurium"|
 
 /^REDHAT_BUGZILLA_PRODUCT=/d
 /^REDHAT_BUGZILLA_PRODUCT_VERSION=/d
