@@ -119,8 +119,8 @@ s|^DEFAULT_HOSTNAME=.*|DEFAULT_HOSTNAME="mercurium"|
 EOF
 
 # Remove annyoing fedora flatpaks
-rm -rf /usr/lib/systemd/system/flatpak-add-fedora-repos.service
-systemctl enable flatpak-add-flathub-repos.service
+#rm -rf /usr/lib/systemd/system/flatpak-add-fedora-repos.service
+#systemctl enable flatpak-add-flathub-repos.service
 
 
 if [ "$(rpm -E "%{fedora}")" == 43 ] ; then
