@@ -5,13 +5,6 @@ set -ouex pipefail
 systemctl enable systemd-timesyncd
 systemctl enable systemd-resolved.service
 
-### Install packages
-
-# Packages can be installed from any enabled yum repo on the image.
-# RPMfusion repos are available by default in ublue main images
-# List of rpmfusion packages can be found here:
-# https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
-
 # See https://github.com/CentOS/centos-bootc/issues/191
 mkdir -p /var/roothome
 
@@ -35,7 +28,6 @@ dnf5 install -y \
  docker \
  fastfetch \
  fzf
-
 
 #Remove software that is not needed for workflow.
 dnf5 remove -y \
@@ -72,16 +64,6 @@ sed -i "s/enabled=.*/enabled=0/g" /etc/yum.repos.d/vscode.repo
 dnf -y install --enablerepo=code \
     code
 
-
-# Use a COPR Example:
-#
-# dnf5 -y copr enable ublue-os/staging
-# dnf5 -y install package
-# Disable COPRs so they don't end up enabled on the final image:
-# dnf5 -y copr disable ublue-os/staging
-
-#### Example for enabling a System Unit File
-
 systemctl enable podman.socket
 
 if [ "$(arch)" != "aarch64" ] ; then
@@ -99,8 +81,6 @@ rm -rf /usr/bin/chsh # footgun
 dnf5 clean all
 rm -rf /var/cache/dnf
 rm -rf /usr/share/doc
-
-
 
 HOME_URL="https://github.com/szenesis/mercuryos"
 echo "Mercurium" | tee "/etc/hostname"
@@ -123,7 +103,3 @@ s|^DEFAULT_HOSTNAME=.*|DEFAULT_HOSTNAME="mercurium"|
 /^REDHAT_SUPPORT_PRODUCT=/d
 /^REDHAT_SUPPORT_PRODUCT_VERSION=/d
 EOF
-
-# Remove annyoing fedora flatpaks
-#rm -rf /usr/lib/systemd/system/flatpak-add-fedora-repos.service
-#systemctl enable flatpak-add-flathub-repos.service
