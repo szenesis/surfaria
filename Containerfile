@@ -26,7 +26,6 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=tmpfs,dst=/tmp \
     /ctx/build.sh
 
-##Brew installed too
 COPY --from=ghcr.io/ublue-os/brew:latest /system_files /
     
 ### LINTING

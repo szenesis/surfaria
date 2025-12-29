@@ -12,6 +12,8 @@ systemctl enable systemd-resolved.service
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
+# See https://github.com/CentOS/centos-bootc/issues/191
+mkdir -p /var/roothome
 
 #Flatpak installs
 flatpak install -y com.vivaldi.Vivaldi
