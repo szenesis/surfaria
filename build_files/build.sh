@@ -95,6 +95,12 @@ fi
 rm -rf /usr/share/doc
 rm -rf /usr/bin/chsh # footgun
 
+#run out of space?
+dnf5 clean all
+rm -rf /var/cache/dnf
+rm -rf /usr/share/doc
+
+
 
 HOME_URL="https://github.com/szenesis/mercuryos"
 echo "Mercurium" | tee "/etc/hostname"
