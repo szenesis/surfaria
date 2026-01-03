@@ -10,8 +10,8 @@ mkdir -p /var/roothome
 dnf5 install -y flatpak
 #Flatpak browser and other necesary installs
 flatpak install -y \
- com.vivaldi.Vivaldi \
- com.mattjakeman.ExtensionManager
+ flatbhub com.vivaldi.Vivaldi \
+ flathub com.mattjakeman.ExtensionManager
 #Remove and cleanup of flatpaks
 #flatpak remove -y \
  org.gnome.Extensions \
