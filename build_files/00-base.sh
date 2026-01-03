@@ -10,12 +10,12 @@ mkdir -p /var/roothome
 dnf5 install -y flatpak
 # Adding flathub remotes
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 # Flatpak update remotes
 flatpak update --appstream
 # Flatpak browser and other necesary installs
-#flatpak install --system -y flathub com.vivaldi.Vivaldi
-#flatpak install --system -y flathub com.mattjakeman.ExtensionManager
+flatpak install --system -y flathub com.vivaldi.Vivaldi
+flatpak install --system -y flathub com.mattjakeman.ExtensionManager
 # Remove and cleanup of flatpaks
 # flatpak remove -y \
 # org.gnome.Extensions \
