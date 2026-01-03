@@ -18,7 +18,7 @@ flatpak install -y \
  com.vivaldi.Vivaldi \
  com.mattjakeman.ExtensionManager
 # Remove and cleanup of flatpaks
-# flatpak remove -y \
+ flatpak remove -y \
  org.gnome.Extensions \
  org.gnome.Contacts \
  org.gnome.Maps \
