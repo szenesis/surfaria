@@ -10,6 +10,7 @@ mkdir -p /var/roothome
 dnf5 install -y flatpak
 # Adding flathub remotes
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 # Flatpak update remotes
 flatpak update --appstream
 # Flatpak browser and other necesary installs
@@ -23,7 +24,8 @@ flatpak install -y \
 # org.gnome.Maps \
 # org.gnome.Papers \
 # org.gnome.Connections
-
+# Update packeges just in case
+dnf5 update -y
 # Install terminal software from fedora repos
 dnf5 install -y \
  foot \
