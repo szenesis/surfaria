@@ -18,12 +18,12 @@ flatpak install -y \
  com.vivaldi.Vivaldi \
  com.mattjakeman.ExtensionManager
 # Remove and cleanup of flatpaks
- flatpak remove -y \
- org.gnome.Extensions \
- org.gnome.Contacts \
- org.gnome.Maps \
- org.gnome.Papers \
- org.gnome.Connections
+# flatpak remove -y \
+# org.gnome.Extensions \
+# org.gnome.Contacts \
+# org.gnome.Maps \
+# org.gnome.Papers \
+# org.gnome.Connections
 
 # Install terminal software from fedora repos
 dnf5 install -y \
