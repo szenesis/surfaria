@@ -14,11 +14,11 @@ flatpak install -y \
  com.mattjakeman.ExtensionManager
 #Remove and cleanup of flatpaks
 #flatpak remove -y \
-# org.gnome.Extensions \
-# org.gnome.Contacts \
-# org.gnome.Maps \
-# org.gnome.Papers \
-# org.gnome.Connections
+ org.gnome.Extensions \
+ org.gnome.Contacts \
+ org.gnome.Maps \
+ org.gnome.Papers \
+ org.gnome.Connections
 
 # Install terminal software from fedora repos
 dnf5 install -y \
@@ -50,7 +50,8 @@ dnf5 remove -y \
  gnome-extensions-app \
  gnome-software-rpm-ostree \
  gnome-backgrounds \
- gnome-terminal \
+ gnome-terminal
+
 # Install VS Code
 #tee /etc/yum.repos.d/vscode.repo <<'EOF'
 #[code]

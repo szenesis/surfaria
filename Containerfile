@@ -5,7 +5,8 @@ COPY build_files /build
 
 COPY cosign.pub /files/etc/pki/containers/mercurium.pub
 # Base Image
-FROM ghcr.io/ublue-os/silverblue-main:latest
+#FROM ghcr.io/ublue-os/silverblue-main:latest
+FROM  quay.io/fedora/fedora-silverblue:44
 COPY --from=ghcr.io/ublue-os/brew:latest /system_files /
 COPY --from=ghcr.io/projectbluefin/common:latest /system_files/shared/usr/bin/luks* /usr/bin
 
