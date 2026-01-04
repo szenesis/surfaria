@@ -1,0 +1,2 @@
+enable foot-server.service
+enable udiskie.service

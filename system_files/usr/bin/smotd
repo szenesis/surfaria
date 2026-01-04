@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+if test ! -e "${XDG_CONFIG_HOME:-$HOME/.config}/mercuryos/no-show-user-motd" ; then
+  reset=$'\e[0m'
+  # bold=$'\e[1m'
+  # link=$'\e[38;2;23;118;122m'
+  magenta=$'\e[48;2;48;48;48m\e[38;2;245;86;71m'
+  header=$'\e[1;38;5;228m\e[48;5;63m'
+  # PLEASE make sure this is properly organized, i dont want to include glow on the image :steamsad:
+  cat <<EOF
+
+  ${header} Welcome to Mercuryos! ${reset}
+
+     Command                          │ Description
+  ─────────────────────────────────────┼────────────────────────────────────
+    ${magneta} sjust toggle-user-motd ${reset}           │ Toggle this banner on/off
+
+EOF
+fi

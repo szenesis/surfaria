@@ -3,8 +3,6 @@
 set -ouex pipefail
 systemctl enable systemd-timesyncd
 systemctl enable systemd-resolved.service
-# See https://github.com/CentOS/centos-bootc/issues/191
-mkdir -p /var/roothome
 
 # Make sure flatpak is active
 dnf5 install -y flatpak
@@ -13,20 +11,15 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 # Flatpak update remotes
 flatpak update --appstream
-# Flatpak browser and other necesary installs
-flatpak install --system -y flathub com.vivaldi.Vivaldi
-flatpak install --system -y flathub com.mattjakeman.ExtensionManager
-# Remove and cleanup of flatpaks
- flatpak remove -y \
- org.gnome.Extensions \
- org.gnome.Contacts \
- org.gnome.Maps \
- org.gnome.Papers \
- org.gnome.Connections
+# Flatpak browser and other necesary installs (subject to be removed if preinstalls work)
+#flatpak install --system -y flathub com.vivaldi.Vivaldi
+#flatpak install --system -y flathub com.mattjakeman.ExtensionManager
+
 # Update packeges just in case
 dnf5 update -y
 # Install terminal software from fedora repos
 dnf5 install -y \
+ @gnome-desktop
  foot \
  fish \
  docker \
@@ -56,6 +49,13 @@ dnf5 remove -y \
  gnome-software-rpm-ostree \
  gnome-backgrounds \
  gnome-terminal
+# Remove and cleanup of flatpaks
+ flatpak remove -y \
+ org.gnome.Extensions \
+ org.gnome.Contacts \
+ org.gnome.Maps \
+ org.gnome.Papers \
+ org.gnome.Connections
 
 # Install VS Code
 #tee /etc/yum.repos.d/vscode.repo <<'EOF'
