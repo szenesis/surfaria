@@ -12,9 +12,6 @@ COPY system_files/usr/share/mercuryos/Pictures/Walls/1471952432939.png /usr/shar
 # Copy dconf defaults
 COPY system_files/etc/dconf/db /etc/dconf/db
 
-# Compile dconf database
-RUN dconf update
-
 # Base Image
 FROM  quay.io/fedora/fedora-bootc:43
 ARG BUILD_FLAVOR="${BUILD_FLAVOR:-}"
