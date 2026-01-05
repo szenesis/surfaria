@@ -56,12 +56,13 @@ dnf5 remove -y \
  gnome-backgrounds \
  gnome-terminal
 # Remove and cleanup of flatpaks
- flatpak remove -y \
- org.gnome.Extensions \
- org.gnome.Contacts \
- org.gnome.Maps \
- org.gnome.Papers \
- org.gnome.Connections
+flatpak uninstall --noninteractive \
+  org.gnome.Extensions \
+  org.gnome.Contacts \
+  org.gnome.Maps \
+  org.gnome.Papers \
+  org.gnome.Connections
+
 
 systemctl preset systemd-resolved.service
 
