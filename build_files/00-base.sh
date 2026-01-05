@@ -6,7 +6,7 @@ systemctl enable systemd-timesyncd
 systemctl enable systemd-resolved.service
 
 # Making sure user home exists for flatpak --user
-export HOME="${HOME:-/root}"
+export HOME=/var/root
 mkdir -p "$HOME/.local/share"
 
 
