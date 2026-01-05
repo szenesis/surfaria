@@ -33,7 +33,10 @@ curl --retry 3 -Lo /etc/flatpak/remotes.d/flathub.flatpakrepo https://dl.flathub
 
 # Remove annoying fedora flatpaks
 rm -rf /usr/lib/systemd/system/flatpak-add-fedora-repos.service
-systemctl enable flatpak-add-flathub-repos.service
+UNIT=flatpak-add-flathub-repos.service
+if [ -f "/usr/lib/systemd/system/$UNIT" ] || [ -f "/etc/systemd/system/$UNIT" ]; then
+    systemctl enable "$UNIT"
+fi
 
 # Saves a ton of space (got from Zirconium)
 rm -rf /usr/share/doc
