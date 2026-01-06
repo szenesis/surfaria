@@ -24,7 +24,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     /ctx/build/01-cleanup.sh
 
 # Copy recunker service file in first
-COPY build_files/rechunker-group-fix.service /etc/systemd/system/
+#COPY build_files/rechunker-group-fix.service /etc/systemd/system/
 
 # Run cleanup script after setting rechuncker
 RUN ./01-cleanup.sh

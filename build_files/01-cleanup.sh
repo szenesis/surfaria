@@ -42,15 +42,6 @@ fi
 rm -rf /usr/share/doc
 rm -rf /usr/bin/chsh # footgun
 
-# Only try systemctl if systemd is present and the service file exists
-if command -v systemctl >/dev/null 2>&1 && \
-   [ -f /etc/systemd/system/rechunker-group-fix.service ]; then
-    systemctl daemon-reload
-    systemctl enable rechunker-group-fix.service
-else
-    echo "==> systemd or service file not present — skipping"
-fi
-
 # Copies `grub` and `shim` EFI binaries to bootupd directory so that bootc-image-builder can work
 # FIX: Will be removed once https://github.com/osbuild/bootc-image-builder/issues/1171 is resolved
 cp -r /usr/lib/efi/*/*/* /usr/lib/bootupd/updates
