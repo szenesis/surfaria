@@ -11,6 +11,8 @@ COPY cosign.pub /files/etc/pki/containers/mercurium.pub
 #Replace default gnome background
 COPY system_files/usr/share/mercuryos/Pictures/Walls/1471952432939.png /usr/share/backgrounds/
 
+RUN dnf install -y plymouth plymouth-system-theme wget && dnf clean all
+
 # Base Image
 FROM  quay.io/fedora/fedora-bootc:43
 ARG BUILD_FLAVOR="${BUILD_FLAVOR:-}"
