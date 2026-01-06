@@ -22,10 +22,18 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     /ctx/build/00-base.sh
 
 #Adding MercuryOS logo to plymouth    
+RUN mkdir -p /usr/share/plymouth/themes/mercuryos && \
+    echo -e '[Plymouth Theme]\nName=MercuryOS\nDescription=MercuryOS boot theme\nModuleName=watermark\n' \
+        > /usr/share/plymouth/themes/mercuryos/mercuryos.plymouth && \
+    wget --tries=5 -O /usr/share/plymouth/themes/mercuryos/watermark.png \
+        https://raw.githubusercontent.com/szenesis/MercuryOS_Walls/265eff6e1f8a8e61198209e2c32290e489797d69/MercuryOS_logo.png
+
+# Set MercuryOS theme as default
 RUN mkdir -p /etc/plymouth && \
-      echo -e '[Daemon]\nTheme=spinner' | tee /etc/plymouth/plymouthd.conf && \
-      wget --tries=5 -O /usr/share/plymouth/themes/spinner/watermark.png \
-      https://raw.githubusercontent.com/szenesis/MercuryOS_Walls/265eff6e1f8a8e61198209e2c32290e489797d69/MercuryOS_logo.png
+    echo -e '[Daemon]\nTheme=mercuryos' > /etc/plymouth/plymouthd.conf
+
+# Optional: rebuild initramfs (Bootc usually handles this in build scripts)
+RUN dracut -f
       
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     /ctx/build/01-cleanup.sh
