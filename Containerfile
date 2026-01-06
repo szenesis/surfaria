@@ -12,7 +12,8 @@ COPY cosign.pub /files/etc/pki/containers/mercurium.pub
 COPY system_files/usr/share/mercuryos/skel/walls/1471952432939.png /usr/share/backgrounds/
 
 # Base Image
-FROM  quay.io/fedora/fedora-bootc:43
+#FROM  quay.io/fedora/fedora-bootc:43
+FROM  quay.io/fedora/fedora-silverblue:latest
 ARG BUILD_FLAVOR="${BUILD_FLAVOR:-}"
 
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
