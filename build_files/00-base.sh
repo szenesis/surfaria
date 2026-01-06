@@ -32,6 +32,8 @@ dnf5 install -y \
  fastfetch \
  fzf \
  emacs
+ plymouth \
+ plymouth-system-theme 
 # Remove software that is not needed for workflow.
 dnf5 remove -y \
  gnome-software \
@@ -54,7 +56,8 @@ dnf5 remove -y \
  gnome-extensions-app \
  gnome-software-rpm-ostree \
  gnome-backgrounds \
- gnome-terminal
+ gnome-terminal \
+ gnome-boxes
 # Remove and cleanup of flatpaks
 for app in \
   org.gnome.Extensions \
