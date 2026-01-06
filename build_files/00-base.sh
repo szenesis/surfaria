@@ -31,9 +31,9 @@ dnf5 install -y \
  docker \
  fastfetch \
  fzf \
- emacs
+ emacs\
  plymouth \
- plymouth-system-theme 
+ plymouth-system-theme
 # Remove software that is not needed for workflow.
 dnf5 remove -y \
  gnome-software \

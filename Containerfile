@@ -15,10 +15,6 @@ COPY system_files/usr/share/mercuryos/Pictures/Walls/1471952432939.png /usr/shar
 FROM  quay.io/fedora/fedora-bootc:43
 ARG BUILD_FLAVOR="${BUILD_FLAVOR:-}"
 
-COPY --from=builder /usr/bin/plymouth /usr/bin/plymouth
-COPY --from=builder /usr/share/plymouth /usr/share/plymouth
-COPY --from=builder /etc/plymouth /etc/plymouth
-
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \
@@ -26,15 +22,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     /ctx/build/00-base.sh
 
 #Adding MercuryOS logo to plymout
-RUN mkdir -p /usr/share/plymouth/themes/mercuryos && \
-    cp -r /usr/share/plymouth/themes/spinner/* /usr/share/plymouth/themes/mercuryos/ && \
-    # Replace the default watermark/logo with MercuryOS logo
-    wget --tries=5 -O /usr/share/plymouth/themes/mercuryos/watermark.png \
-        https://raw.githubusercontent.com/szenesis/MercuryOS_Walls/265eff6e1f8a8e61198209e2c32290e489797d69/MercuryOS_logo.png && \
-    # Edit the spinner script to remove Fedora text or replace it with MercuryOS
-    sed -i 's/Fedora/MercuryOS/g' /usr/share/plymouth/themes/mercuryos/spinner.script && \
-    # Update theme metadata
-    sed -i 's/Name=.*/Name=MercuryOS/' /usr/share/plymouth/themes/mercuryos/spinner.plymouth
+cp -f /usr/share/mercuryos/pixmaps/MercuryOSlogo.png /usr/share/plymouth/themes/spinner/MercuryOSlogo.png
 
 # Set MercuryOS spinner theme as default
 RUN mkdir -p /etc/plymouth && \
