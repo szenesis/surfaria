@@ -9,7 +9,7 @@ COPY --from=ghcr.io/projectbluefin/common:latest /system_files/shared/usr/bin/lu
 COPY cosign.pub /files/etc/pki/containers/mercurium.pub
 
 #Replace default gnome background
-COPY system_files/usr/share/mercuryos/Pictures/Walls/1471952432939.png /usr/share/backgrounds/
+COPY system_files/usr/share/mercuryos/skel/walls/1471952432939.png /usr/share/backgrounds/
 
 # Base Image
 FROM  quay.io/fedora/fedora-bootc:43
