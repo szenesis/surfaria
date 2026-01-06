@@ -22,7 +22,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     /ctx/build/00-base.sh
 
 #Adding MercuryOS logo to plymout
-cp -f /usr/share/mercuryos/pixmaps/MercuryOSlogo.png /usr/share/plymouth/themes/spinner/MercuryOSlogo.png
+COPY -f /usr/share/mercuryos/pixmaps/MercuryOSlogo.png /usr/share/plymouth/themes/spinner/MercuryOSlogo.png
 
 # Set MercuryOS spinner theme as default
 RUN mkdir -p /etc/plymouth && \
