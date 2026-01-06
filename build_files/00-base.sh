@@ -25,7 +25,25 @@ flatpak install --system -y flathub com.mattjakeman.ExtensionManager
 dnf5 update -y
 # Install terminal software from fedora repos
 dnf5 install -y \
- @gnome-desktop \
+ gdm \
+ gnome-shell \
+ gnome-session \
+ mutter \
+ mesa-dri-drivers \
+ mesa-libEGL \
+ mesa-libGL \
+ libdrm \
+ wayland \
+ wayland-protocols \
+ xorg-x11-server-Xwayland \
+ xorg-x11-server-Xorg \
+ accountsservice \
+ polkit \
+ polkit-gnome \
+ xdg-desktop-portal \
+ xdg-desktop-portal-gnome \
+ pipewire \
+ wireplumber \
  sakura \
  fish \
  docker \
