@@ -26,7 +26,7 @@ dnf5 update -y
 # Install terminal software from fedora repos
 dnf5 install -y \
  @gnome-desktop \
- foot \
+ sakura \
  fish \
  docker \
  fastfetch \

@@ -40,7 +40,7 @@ fi
 
 # Saves a ton of space (got from Zirconium)
 rm -rf /usr/share/doc
-rm -rf /usr/bin/chsh # footgun
+rm -rf /usr/bin/chsh
 
 # Copies `grub` and `shim` EFI binaries to bootupd directory so that bootc-image-builder can work
 # FIX: Will be removed once https://github.com/osbuild/bootc-image-builder/issues/1171 is resolved
