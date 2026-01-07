@@ -38,6 +38,7 @@ dnf5 remove -y \
  htop \
  nvtop \
  firefox \
+ fish \
  ptyxis
 # Remove old/retro Gnome extensions
 dnf5 remove -y \
