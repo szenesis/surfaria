@@ -8,9 +8,6 @@ COPY --from=ghcr.io/ublue-os/brew:latest /system_files /
 COPY --from=ghcr.io/projectbluefin/common:latest /system_files/shared/usr/bin/luks* /usr/bin
 COPY cosign.pub /files/etc/pki/containers/mercurium.pub
 
-#Replace default gnome background
-COPY system_files/usr/share/mercuryos/skel/walls/1471952432939.png /usr/share/backgrounds/
-
 # Base Image
 #FROM  quay.io/fedora/fedora-bootc:43
 FROM  quay.io/fedora/fedora-silverblue:latest

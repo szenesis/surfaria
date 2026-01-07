@@ -1,11 +1,3 @@
 [Flatpak Preinstall io.github.kolunmi.Bazaar]
 Branch=stable
 IsRuntime=false
-
-[Flatpak Preinstall com.vivaldi.Vivaldi]
-Branch=stable
-IsRuntime=false
-
-[Flatpak Preinstall com.mattjakeman.ExtensionManager]
-Branch=stable
-IsRuntime=false

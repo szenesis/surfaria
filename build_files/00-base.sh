@@ -23,7 +23,6 @@ dnf5 update -y
 dnf5 install -y \
  -x PackageKit* \
  sakura \
- fish \
  docker \
  fastfetch \
  fzf \

@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-just -f /usr/share/mercuryos/just/00-start.just "${@}"
