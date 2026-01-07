@@ -1,9 +1,4 @@
 sdots_path := "/usr/share/mercuryos/sdots"
-
-preinstalled-flatpaks:
-    #!/usr/bin/env bash
-    flatpak preinstall --reinstall
-
 toggle-user-motd:
     #!/usr/bin/env bash
 
