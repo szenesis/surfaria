@@ -56,6 +56,7 @@ dnf5 remove -y \
  gnome-boxes \
  gnome-maps \
  gnome-contacts \
+ gnome-weather \
  decibels
 # Remove and cleanup of flatpaks
 APPS="
