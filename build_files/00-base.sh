@@ -55,7 +55,7 @@ dnf5 remove -y \
  gnome-terminal \
  gnome-boxes
 # Remove and cleanup of flatpaks
-flatpak uninstall --delete-data -y \
+flatpak uninstall --delete-data -y --if-installed \
   org.gnome.Extensions \
   org.gnome.Contacts \
   org.gnome.Maps \
