@@ -55,15 +55,21 @@ dnf5 remove -y \
  gnome-terminal \
  gnome-boxes
 # Remove and cleanup of flatpaks
-flatpak uninstall --delete-data -y --if-installed \
-  org.gnome.Extensions \
-  org.gnome.Contacts \
-  org.gnome.Maps \
-  org.gnome.Papers \
-  org.gnome.Connections \
-  org.gnome.Weather \
-  org.gnome.TextEditor \
-  org.fedoraproject.MediaWriter 
+APPS="
+org.gnome.Extensions
+org.gnome.Contacts
+org.gnome.Maps
+org.gnome.Papers
+org.gnome.Connections
+org.gnome.Weather
+org.gnome.TextEditor
+org.fedoraproject.MediaWriter
+"
+for app in $APPS; do
+  if flatpak info "$app" >/dev/null 2>&1; then
+    flatpak uninstall --delete-data -y "$app"
+  fi
+done
 
 systemctl preset systemd-resolved.service
 
