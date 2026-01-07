@@ -53,7 +53,10 @@ dnf5 remove -y \
  gnome-software-rpm-ostree \
  gnome-backgrounds \
  gnome-terminal \
- gnome-boxes
+ gnome-boxes \
+ gnome-maps \
+ gnome-contacts \
+ decibels
 # Remove and cleanup of flatpaks
 APPS="
 org.gnome.Extensions
