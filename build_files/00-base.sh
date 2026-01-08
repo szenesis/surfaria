@@ -58,11 +58,8 @@ dnf5 remove -y \
  gnome-contacts \
  gnome-text-editor \
  gnome-weather \
- decibels
-#Removing default backgrounds
-RUN rpm-ostree override remove \
+ decibels \
  fedora-workstation-backgrounds
-
 # Remove and cleanup of flatpaks
 APPS="
 org.gnome.Extensions
