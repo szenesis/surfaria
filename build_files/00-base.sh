@@ -26,8 +26,7 @@ dnf5 install -y \
  fzf \
  emacs\
  plymouth \
- plymouth-system-theme \
- gnome-shell-extension-caffeine
+ plymouth-system-theme
  # -x PackageKit* \
 # Remove software that is not needed for workflow.
 dnf5 remove -y \
