@@ -75,7 +75,7 @@ for app in $APPS; do
   fi
 done
 #Vivaldi Browser flatpak by default
-flatpak install -y --user flathub com.vivaldi.Vivaldi
+flatpak install -y --system flathub com.vivaldi.Vivaldi
 
 systemctl preset systemd-resolved.service
 
