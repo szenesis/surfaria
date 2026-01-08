@@ -24,7 +24,6 @@ dnf5 install -y \
  -x PackageKit* \
  sakura \
  docker \
- fastfetch \
  fzf \
  emacs\
  plymouth \
@@ -39,6 +38,7 @@ dnf5 remove -y \
  nvtop \
  firefox \
  fish \
+ fastfetch \
  ptyxis
 # Remove old/retro Gnome extensions
 dnf5 remove -y \
@@ -56,8 +56,13 @@ dnf5 remove -y \
  gnome-boxes \
  gnome-maps \
  gnome-contacts \
+ gnome-text-editor \
  gnome-weather \
  decibels
+#Removing default backgrounds
+RUN rpm-ostree override remove \
+ fedora-workstation-backgrounds
+
 # Remove and cleanup of flatpaks
 APPS="
 org.gnome.Extensions
@@ -74,8 +79,6 @@ for app in $APPS; do
     flatpak uninstall --delete-data -y "$app"
   fi
 done
-#Vivaldi Browser flatpak by default
-flatpak install -y --system flathub com.vivaldi.Vivaldi
 
 systemctl preset systemd-resolved.service
 
