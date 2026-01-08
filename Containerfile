@@ -25,6 +25,9 @@ COPY system_files/usr/share/wallpapers usr/share/backgrounds/gnome
 COPY build_files/02-custom-background.gschema.override /usr/share/glib-2.0/schemas/
 #Recompilig schemas to apply override as the new system default
 RUN glib-compile-schemas /usr/share/glib-2.0/schemas/
+#Deleteting fedora-workstation backgrounds folder
+RUN rm -rf /usr/share/backgrounds/fedora-workstation
+
 
 #Adding MercuryOS logo to plymout
 COPY system_files/usr/share/mercuryos/pixmaps/MercuryOSlogo.png /usr/share/plymouth/themes/spinner/MercuryOSlogo.png
