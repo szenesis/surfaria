@@ -19,6 +19,8 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=tmpfs,dst=/tmp \
     /ctx/build/00-base.sh
 
+#Adding wallpaper
+COPY system_files/usr/share/wallpapers ~/.local/share/backgrounds
 #Adding MercuryOS logo to plymout
 COPY system_files/usr/share/mercuryos/pixmaps/MercuryOSlogo.png /usr/share/plymouth/themes/spinner/MercuryOSlogo.png
 

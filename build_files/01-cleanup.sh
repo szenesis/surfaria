@@ -12,7 +12,7 @@ echo "mercuryos" | tee "/etc/hostname"
 sed -i -f - /usr/lib/os-release <<EOF
 s|^NAME=.*|NAME=\"MercuryOS\"|
 s|^PRETTY_NAME=.*|PRETTY_NAME=\"MercuryOS\"|
-s|^VERSION_CODENAME=.*|VERSION_CODENAME=\"rebel possum\"|
+s|^VERSION_CODENAME=.*|VERSION_CODENAME=\"Stressed Possum\"|
 s|^VARIANT_ID=.*|VARIANT_ID=""|
 s|^HOME_URL=.*|HOME_URL=\"${HOME_URL}\"|
 s|^BUG_REPORT_URL=.*|BUG_REPORT_URL=\"${HOME_URL}/issues\"|
